@@ -1,0 +1,64 @@
+Task
+
+Consider a database table, Emails, which has the attributes First Name and Email ID. Given N rows of data simulating the Emails table, print an alphabetically-ordered 
+list of people whose email address ends in @gmail.com (RegEx Pattern)
+
+Input Format
+
+The first line contains an integer, N, total number of rows in the table.
+Each of the N subsequent lines contains 2 space-separated strings denoting a person's first name and email ID, respectively.
+
+Output Format
+
+Print an alphabetically-ordered list of first names for every user with a gmail account. Each name must be printed on a new line.
+=======================================================================================================================================================================
+Teast case:
+Sample Input
+
+6
+riya riya@gmail.com
+julia julia@julia.me
+julia sjulia@gmail.com
+julia julia@gmail.com
+samantha samantha@gmail.com
+ghanendra ghanendra.yadav@gmail.com
+
+
+Sample Output
+
+ghanendra
+julia
+julia
+riya
+samantha
+
+Output Format
+
+Print an alphabetically-ordered list of first names for every user with a Gmail account. Each name must be printed on a new line.
+=======================================================================================================================================================================
+Program:
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        in.nextLine();
+        
+        ArrayList<String> results = new ArrayList<String>();
+        
+        for (int i = 0; i < n; i++) {
+            String line = in.nextLine();
+            String[] tokens = line.split(" ");
+            if (tokens[1].endsWith("@gmail.com"))
+                results.add(tokens[0]);
+        }
+        
+        Collections.sort(results);
+        for (String s : results) {
+            System.out.println(s);
+        }
+    }
+}
