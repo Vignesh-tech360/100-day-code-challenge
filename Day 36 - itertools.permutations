@@ -1,0 +1,47 @@
+Task
+
+You are given a string S.
+Your task is to print all possible permutations of size K of the string in lexicographic sorted order.
+
+Input Format
+
+A single line containing the space separated string S and the integer value K.
+
+Constraints
+
+O<K<=len(s)
+The string contains only UPPERCASE characters.
+
+Output Format
+
+Print the permutations of the string S on separate lines.
+======================================================================================================================================================================
+Sample Input
+
+HACK 2
+Sample Output
+
+AC
+AH
+AK
+CA
+CH
+CK
+HA
+HC
+HK
+KA
+KC
+KH
+=====================================================================================================================================================================
+Program:
+from itertools import permutations
+word = input().split()
+
+text = ''.join(sorted(word[0]))
+n = int(word[1])
+
+premu = list(permutations(text,n))
+
+for i in premu:
+    print(''.join(i))
