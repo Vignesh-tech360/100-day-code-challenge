@@ -1,0 +1,38 @@
+Lambda functions cannot use the return statement and can only have a single expression. Unlike def, which creates a function and assigns it a name, lambda creates a 
+function and returns the function itself. Lambda can be used inside lists and dictionaries.
+
+Input Format
+
+One line of input: an integer N.
+
+Constraints
+0<=N<=15
+
+Output Format
+
+A list on a single line containing the cubes of the first N fibonacci numbers.
+========================================================================================================================================================================
+Test case:
+Sample Input
+
+5
+Sample Output
+
+[0, 1, 1, 8, 27]
+=========================================================================================================================================================================
+Program:
+cube = lambda x: x ** 3
+
+
+def fibonacci(n):
+    List = [0, 1]
+    for i in range(2, n):
+        List.append(List[i-1] + List[i-2])
+        
+    return(List[0:n])
+
+
+
+if __name__ == '__main__':
+    n = int(input())
+    print(list(map(cube, fibonacci(n))))
